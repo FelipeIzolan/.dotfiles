@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	{ 'fedepujol/move.nvim' },
 	{ 'nvim-tree/nvim-web-devicons', lazy = true },
-	{ 'nvim-treesitter/nvim-treesitter' },
+	{ 'nvim-treesitter/nvim-treesitter', config = function () require("configs.treesitter") end  },
 	{ 'rebelot/kanagawa.nvim', config = function() require("configs.kanagawa") end},
 	{ 'neovim/nvim-lspconfig' },
 	{ 'williamboman/mason.nvim',
@@ -27,6 +27,18 @@ local plugins = {
 		config = function() require("configs.cmp") end,
 		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'L3MON4D3/LuaSnip' }
 	},
+  {
+    "iamcco/markdown-preview.nvim",
+    config = function()
+      vim.g.mkdp_theme = "dark"
+      vim.g.mkdp_auto_close = 0
+      vim.g.mkdp_page_title = "${name}"
+      vim.g.mkdp_combine_preview = 1
+    end,
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 }
 
 require("lazy").setup(plugins)
@@ -34,7 +46,7 @@ vim.cmd("colorscheme kanagawa")
 require("configs.lsp")
 
 -- My plugins :)
-require("configs._autosave")
-require("configs._comment")
-require("configs._netrw")
-require("configs._diagnostic")
+require("scripts.tree")
+require("scripts.comment")
+require("scripts.autosave")
+require("scripts.diagnostic")

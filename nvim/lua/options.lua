@@ -21,7 +21,7 @@ end
 -- My custom filetypes :)
 vim.filetype.add({
 	extension = {
-		svelte = "svelte",
+-- 		svelte = "svelte",
 		conf = "conf"
 	}
 })
