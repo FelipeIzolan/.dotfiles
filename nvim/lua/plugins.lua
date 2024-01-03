@@ -15,9 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{ 'fedepujol/move.nvim' },
+	{ 'FelipeIzolan/lipoide.nvim' },
 	{ 'nvim-tree/nvim-web-devicons', lazy = true },
-	{ 'nvim-treesitter/nvim-treesitter', config = function () require("configs.treesitter") end  },
-	{ 'rebelot/kanagawa.nvim', config = function() require("configs.kanagawa") end},
+	{ 'nvim-treesitter/nvim-treesitter', config = function () require("configs.treesitter") end },
 	{ 'neovim/nvim-lspconfig' },
 	{ 'williamboman/mason.nvim',
 		config = true,
@@ -42,7 +42,7 @@ local plugins = {
 }
 
 require("lazy").setup(plugins)
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme lipoide")
 require("configs.lsp")
 
 -- My plugins :)

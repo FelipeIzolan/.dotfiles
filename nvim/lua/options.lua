@@ -3,8 +3,10 @@ vim.g.mapleader = " "
 local opts = {
 	backup = false,
 	tabstop = 2,
-	shiftwidth = 0,
 	expandtab = true,
+	copyindent = true,
+	preserveindent = true,
+	shiftwidth = 0,
 	mouse = "a",
 	clipboard = "unnamedplus",
 	number = true,
@@ -21,7 +23,6 @@ end
 -- My custom filetypes :)
 vim.filetype.add({
 	extension = {
--- 		svelte = "svelte",
 		conf = "conf"
 	}
 })

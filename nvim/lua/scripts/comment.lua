@@ -35,7 +35,7 @@ vim.api.nvim_set_keymap("", "<Leader>c", "", {
     -- NORMAL MODE
     if mode == "n" then
       local line = vim.api.nvim_get_current_line()
-      line = line:sub(0, 2) == t:sub(0,2) and uncomment(t, line) or comment(t, line)
+      line = uncomment(t, line) or comment(t, line)
       vim.api.nvim_set_current_line(line)
     end
 
@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap("", "<Leader>c", "", {
       local lines = vim.api.nvim_buf_get_lines(0, _start, _end, true)
 
       for i, line in ipairs(lines) do
-        lines[i] = line:sub(0, 2) == t:sub(0,2) and uncomment(t, line) or comment(t, line)
+        lines[i] = uncomment(t, line) or comment(t, line)
       end
 
       vim.api.nvim_buf_set_lines(0, _start, _end, true, lines)

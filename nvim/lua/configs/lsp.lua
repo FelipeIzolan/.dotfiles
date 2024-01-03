@@ -1,6 +1,8 @@
 local lsp = require("lspconfig")
 local mason_lsp = require("mason-lspconfig")
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local on_attach = function (client, _) client.server_capabilities.semanticTokensProvider = nil end
 
 local handlers = {
   function (lsp_server)
@@ -12,7 +14,8 @@ local handlers = {
 				    validate = { enable = true },
 			    },
 		    },
-		    capabilities = capabilities
+		    capabilities = capabilities,
+		    on_attach = on_attach
 	    })
 	  end
 
@@ -24,11 +27,12 @@ local handlers = {
       			schemas = require('schemastore').yaml.schemas(),
     			},
   			},
-		    capabilities = capabilities
+		    capabilities = capabilities,
+		    on_attach = on_attach
 			})
 		end
 
-	  lsp[lsp_server].setup({ capabilities = capabilities })
+	  lsp[lsp_server].setup({ capabilities = capabilities, on_attach = on_attach })
   end
 }
 
