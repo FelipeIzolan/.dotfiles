@@ -1,4 +1,4 @@
 require("options")
 require("plugins")
-require("statusline")
+require("statusbar")
 require("mappings")

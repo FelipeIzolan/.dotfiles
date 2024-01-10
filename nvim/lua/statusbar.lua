@@ -23,10 +23,6 @@ local modes = {
   ["t"] = "TERMINAL",
 }
 
-vim.cmd("highlight StatusMode guibg=#5f4b80 guifg=white")
-vim.cmd("highlight StatusLocation guibg=#5279c7 guifg=white")
-vim.cmd("highlight StatusPath guibg=#101010 guifg=white")
-
 function StatusLine()
 	local _t = vim.fn.expand("%t")
 	local icon, color = devicons.get_icon(_t, nil, { default = true })
@@ -34,13 +30,15 @@ function StatusLine()
 	local err = " " .. #vim.diagnostic.get(0, { severity = "Error" })
   local warn = " " .. #vim.diagnostic.get(0, { severity = "Warn" })
   local hint = " 󰛨" .. #vim.diagnostic.get(0, { severity = "Hint" })
-
-	return
-    "%#StatusMode# " .. modes[vim.api.nvim_get_mode().mode] .. " " ..
-	  "%#StatusLocation# %l,%c " ..
-		"%#" .. color .. "# " .. icon .. vim.bo.filetype .. " " ..
-		"%##% " .. err .. warn .. hint .. " " ..
-    "%#StatusPath#  %F"
+  
+  return
+    "%#Comment# " .. modes[vim.api.nvim_get_mode().mode] .. " " ..
+	  " %l,%c " ..
+	  "%#" .. color .. "# " .. icon .. vim.bo.filetype .. " " ..
+	  "%#DiagnosticVirtualTextError#% " .. err .. 
+	  "%#DiagnosticVirtualTextWarn#% " .. warn .. 
+	  "%#DiagnosticVirtualTextHint#% " .. hint .. " " ..
+    "%#Comment#  %F"
 end
 
 vim.api.nvim_exec([[

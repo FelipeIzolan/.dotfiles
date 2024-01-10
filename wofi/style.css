@@ -1,43 +1,35 @@
-* { transition: 0.2s; }
-
 window {
-margin: 0px;
-border: 1px solid #15668F;
-border-radius: 6px;
-background-color: rgba(0,0,0,0.5);
+  margin: 0;
+  border: none;
+  background: #050505;
+  border-radius: 8px;
+  border: 0.1px solid white;
 }
 
 #input {
-margin: 5px;
-border: none;
-background: none;
-border-bottom: 1px solid #15668F;
-color: #f8f8f2;
+  margin: 5px;
+  border: none;
+  color: white;
+  background-color: #202020;
 }
 
 #inner-box {
-margin: 5px;
-border: none;
+  margin: 5px;
+  border: none;
+  background-color: #050505;
 }
 
 #outer-box {
-margin: 5px;
-border: none;
-}
-
-#scroll {
-margin: 0px;
-border: none;
+  margin: 5px;
+  background: #050505;
 }
 
 #text {
-margin: 5px;
-border: none;
-color: #f8f8f2;
+  margin: 5px;
+  border: none;
+  color: #757575;
 } 
 
 #entry:selected {
-border-radius: 4px;
-background: none;
-border: 1px solid #15668F;
+  background: #151515;
 }
