@@ -14,7 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 -- BOOTSTRAP | END
 
 local plugins = {
-	{ 'fedepujol/move.nvim' },
+	{ 'fedepujol/move.nvim', config = true },
+	{ 'echasnovski/mini.pick', config = true },
 	{ 'FelipeIzolan/lipoide.nvim' },
 	{ 'nvim-tree/nvim-web-devicons', lazy = true },
 	{ 'nvim-treesitter/nvim-treesitter', config = function () require("configs.treesitter") end },
@@ -50,3 +51,4 @@ require("scripts.tree")
 require("scripts.comment")
 require("scripts.autosave")
 require("scripts.diagnostic")
+require("scripts.pkm")
