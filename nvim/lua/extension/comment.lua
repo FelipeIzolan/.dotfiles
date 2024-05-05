@@ -27,10 +27,9 @@ end
 vim.api.nvim_set_keymap("", "<Leader>c", "", {
 	callback = function ()
 		local t = vim.bo.commentstring
+    local mode = vim.api.nvim_get_mode().mode
 
     if t == "" then return end
-
-    local mode = vim.api.nvim_get_mode().mode
 
     -- NORMAL MODE
     if mode == "n" then
