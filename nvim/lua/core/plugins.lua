@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { 'FelipeIzolan/lipoide.nvim' },
+  { 'stevearc/conform.nvim', config = true },
   { 'nvimdev/indentmini.nvim', config = require("config.indentmini")},
   { 'fedepujol/move.nvim', config = true },
   { 'nvim-tree/nvim-web-devicons', lazy = true, config = require("config.nvim-web-devicons") },
