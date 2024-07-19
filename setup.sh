@@ -45,7 +45,7 @@ sudo make -C ./suckless/st clean install
 
 ## ------------------------------------------------------
 
-printf "while true; do xsetroot -name " 󱑁 $(date +"%H:%M%p") "; sleep 1s; done" > ~/statusbar.sh
+printf "while true; do xsetroot -name \" 󱑁 $(date +"%H:%M%p") \"; sleep 1s; done" > ~/statusbar.sh
 printf "[[ -f ~/.bashrc ]] && . ~/.bashrc\nstartx" > ~/.bash_profile
 printf "xwallpaper --center ~/wallpaper.jpg & setxkbmap br & picom -b & ~/statusbar.sh & exec dwm" > ~/.xinitrc
 
